@@ -8,3 +8,26 @@
 Peliculas
 
 {% endblock %}
+
+{% block descripcion %}
+<h4>
+<button>
+    <a href="{% url 'FormularioPelicula' %}"> Agregar Pelicula</a>
+</button>
+</h4>
+<form action="/AppG/resultadoPelicula" method="GET">
+
+    <input type="text" name="nombre" id="nombre">
+    <input type="submit" value="Buscar">
+
+</form>
+
+<p>Buscando: {{pelicula}}</p>
+
+{% for pelicula in peliculas %}
+    
+<p>Nombre: {{pelicula.nombre}} --- Director: {{pelicula.director}} --- Año: {{pelicula.año}}</p>
+
+{% endfor %}
+
+{% endblock%}

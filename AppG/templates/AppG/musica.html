@@ -8,3 +8,26 @@
 Musica
 
 {% endblock %}
+
+{% block descripcion %}
+<h4>
+<button>
+    <a href="{% url 'FormularioMusica' %}"> Agregar Musica</a>
+</button>
+</h4>
+<form action="/AppG/resultadoMusica" method="GET">
+    
+    <input type="text" name="cancion" id="cancion">
+     <input type="submit" value="Buscar">
+    
+</form>
+    
+<p>Buscando: {{musica}}</p>
+
+{% for musica in musicas %}
+    
+<p>Cancion: {{musica.cancion}} --- Disco: {{musica.disco}} --- Grupo: {{musica.grupo}} --- Año: {{musica.año}}</p>
+
+{% endfor %}
+   
+{% endblock %}
